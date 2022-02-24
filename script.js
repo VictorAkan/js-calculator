@@ -9,6 +9,7 @@
 // Number of people im helping
 let tipRecipient = document.getElementById('tipRecipientNo')
 let bill = document.getElementById('billAmount');
+console.log(bill);
 
 // let tipRecipientNo = tipRecipient
 
@@ -39,7 +40,7 @@ tipBtn.forEach (function (button) {
 let billAmount = bill.value
 let tipRecipientNo = document.getElementById('tipRecipientNo');
 let noOfPeople = document.getElementById('noOfPeople');
-let billOuputAmount = document.getElementById('billOutputAmount')
+let billOuputAmount = document.getElementById('billAmountOutput')
 
 let payBillBtn = document.getElementById('paybill');
 
@@ -63,19 +64,25 @@ payBillBtn.addEventListener('click', function() {
 
     billOuputAmount.textContent = bill.value;
     noOfPeople.textContent = tipRecipientNo.value;
-    tipAmount = (billOuputAmount * tipPercent ) / 100;
+    console.log(billOuputAmount);
+    console.log(tipPercent);
+    
+    let tipAmount = (billOuputAmount.textContent * tipPercent ) / 100;
+    console.log(bill);
     totalTip.textContent = tipAmount;
     tipPerPerson.textContent = (tipAmount  / tipRecipientNo.value);
-    totalBill.textContent = tipAmount + (billOuputAmount.textContent);
+    totalBill.textContent = +tipAmount + +(billOuputAmount.textContent);
+    bill.textContent = billOuputAmount.textContent
 })
 console.log(payBillBtn)
 
 function reset() {
     loaderText.textContent = 'Reseting......';
-    fixed.style.background = "#000";
+    //fixed.style.background = "#000";
     setTimeout(() => {
        fixed.classList.toggle('d-none')
     })
+    document.getElementById('billAmount').textContent = 00;
     //whiteGuy.style.display = 'block'
     //blackGuy.style.display = 'none'
 }
