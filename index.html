@@ -18,51 +18,86 @@
     <p class="top-text f-top-text">SPLI</p>
     <p class="top-text s-top-text">TTER</p>
 
+    <p>Bill Amount : <span id="billOutputAmount"></span></p>
+    <p>Tip Percentage : <span id="tipPercentage"></span></p>
+    <p>Number of people : <span id="noOfPeople"></span></p>
+
     <div class="container">
         <div class="row">
-            <div class="col-md-6 calc-o">
+            <div class="col-md-6 calc-o" id="whiteGuy">
                 <p class="text-bill">Bill</p>
                 
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">$</span>
-                    <input type="text" class="form-control" placeholder="142.55" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" id="billAmount" placeholder="142.55" aria-label="Username" aria-describedby="basic-addon1" value="5">
                   </div>
                   <p class="text-bill s-bill">Select Tip %</p>
                   <div class="btn-real btn-grid">
-                      <div class="grid-1"><button class="g-btn">5%</button></div>
-                      <div class="grid-2"><button class="g-btn">10%</button></div>
-                      <div class="grid-3"><button class="l-btn co-btn">15%</button></div>
-                    <div class="grid-4"><button class="g-btn d-btn co-btn">25%</button></div>
-                    <div class="grid-5"><button class="g-btn d-btn lo-btn">50%</button></div>
+                      <div class="grid-1"><button class="g-btn tip" id="tipPercent">5%</button></div>
+                      <div class="grid-2"><button class="g-btn tip">10%</button></div>
+                      <div class="grid-3"><button class="l-btn co-btn tip">15%</button></div>
+                    <div class="grid-4"><button class="g-btn d-btn co-btn tip">25%</button></div>
+                    <div class="grid-5"><button class="g-btn d-btn lo-btn tip">50%</button></div>
                     <div class="grid-6"><button class="w-btn d-btn lo-btn">Custom</button></div>
                   </div>
                   <p class="text-bill s-bill">Number of people</p>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                    <input type="text" class="form-control" placeholder="5" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" id="tipRecipientNo" placeholder="5" aria-label="Username" aria-describedby="basic-addon1" value="5">
                   </div>
+                  <button class="w-100 lost-btn" id="paybill">
+                      pay bill
+                  </button>
             </div>
-            <div class="col-md-6 calc-showcase">
+            <div class="col-md-6 calc-showcase" id="blackGuy">
+                <div class="first-t-hold d-flex">
+                    <div class="d-block">
+                        <p class="amount">Total Tip</p>
+                        
+                    </div>
+                    <p class="doll" id="totalTip"></p>
+                </div>
                 <div class="first-t-hold d-flex">
                     <div class="d-block">
                         <p class="amount">Tip Amount</p>
-                        <p class="amount-k">/ person</p>
                     </div>
-                    <p class="doll">$4.27</p>
+                    <p class="doll" id="tipPerPerson"></p>
+                </div>
+                <div class="first-t-hold d-flex">
+                    <div class="d-block">
+                        <p class="amount">Bill</p>
+                    </div>
+                    <p class="doll" id="billAmount"></p>
                 </div>
                 <div class="first-t-hold d-flex">
                     <div class="d-block">
                         <p class="amount">Total</p>
                         <p class="amount-k">/ person</p>
                     </div>
-                    <p class="doll">$32.79</p>
+                    <p class="doll" id="totalBill"></p>
                 </div>
                 <button class="last-btn">
+                    PAY BILL
+                </button>
+                <button class="last-btn" onclick="reset()">
                     RESET
                 </button>
             </div>
         </div>
     </div>
+    <!--loader-->
+    <div class="loader d-none" id="loader">
+        <div class="wrapper">
+            <div id="circle">
+                <div id="square"></div>
+            </div>
+            <span id="loaderText"></span>
+        </div>
+    </div>
+    <script>
+        let form = document.getElementById('form')
+        
+    </script>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
